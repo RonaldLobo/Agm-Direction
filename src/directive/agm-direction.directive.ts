@@ -25,6 +25,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
   @Input() avoidTolls: Boolean = false;
   @Input() renderOptions: any;
   @Input() panel: object | undefined;
+  @Input() language: string | 'en';
   @Input() markerOptions: { origin: any, destination: any, waypoints: any };
   @Input() infoWindow: InfoWindow;
 
@@ -152,6 +153,7 @@ export class AgmDirection implements OnChanges, OnInit, OnDestroy {
           provideRouteAlternatives: this.provideRouteAlternatives,
           avoidHighways: this.avoidHighways,
           avoidTolls: this.avoidTolls,
+          language: this.language
         }, (response: any, status: any) => {
 
           this.onResponse.emit(response);
